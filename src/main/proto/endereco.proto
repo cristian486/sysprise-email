@@ -1,0 +1,23 @@
+syntax="proto3";
+package pb;
+option java_multiple_files = true;
+
+message Endereco {
+  uint64 id = 1;
+  string rua = 2;
+  uint32 numero = 3;
+  string bairro = 4;
+  string complemento = 5;
+  string cep = 6;
+  uint64 cidadeId = 7;
+  uint64 estado_id = 8;
+}
+
+message EnderecoId {
+  uint64 id = 1;
+}
+
+
+service EnderecoService {
+  rpc GetEnderecoById(EnderecoId) returns (Endereco) {}
+}
